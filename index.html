@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Florería Rosa de Sarón</title>
+  <meta name="description" content="Ramos y arreglos florales con delivery. Paga por transferencia y confirma tu pedido por WhatsApp.">
+  <meta name="theme-color" content="#A61B5C">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='28' r='22' fill='%23D6337F'/%3E%3Ccircle cx='72' cy='44' r='22' fill='%23D6337F'/%3E%3Ccircle cx='64' cy='70' r='22' fill='%23D6337F'/%3E%3Ccircle cx='36' cy='70' r='22' fill='%23D6337F'/%3E%3Ccircle cx='28' cy='44' r='22' fill='%23D6337F'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23F0B429'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#/" aria-label="Ir al inicio">
+        <span class="brand-mark" id="brandMark"></span>
+        <span class="brand-name" id="brandName"></span>
+      </a>
+
+      <form class="search" id="searchForm" role="search">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="searchInput" type="search" placeholder="Buscar ramos, rosas, arreglos" aria-label="Buscar productos" autocomplete="off">
+      </form>
+
+      <nav class="nav" aria-label="Principal">
+        <a href="#/">Inicio</a>
+        <a href="#/catalogo">Catálogo</a>
+        <a href="#/contacto">Contacto</a>
+      </nav>
+
+      <button class="cart-btn" type="button" data-action="open-cart" aria-label="Abrir carrito">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H6.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="20" r="1.4" fill="currentColor"/><circle cx="17" cy="20" r="1.4" fill="currentColor"/></svg>
+        <span class="cart-label">Carrito</span>
+        <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- INICIO + CATÁLOGO -->
+    <section class="view" data-view="home">
+      <div class="hero">
+        <div class="hero-copy">
+          <h1 id="heroTitle"></h1>
+          <p id="heroText"></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="heroCta" href="#/catalogo"></a>
+            <a class="btn btn-ghost" id="heroWa" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          </div>
+        </div>
+        <div class="hero-art" id="heroArt" aria-hidden="true"></div>
+      </div>
+
+      <ul class="perks" id="perks"></ul>
+
+      <section class="catalog" id="catalogo" aria-labelledby="catalogTitle">
+        <div class="section-head">
+          <h2 id="catalogTitle"></h2>
+          <p id="catalogText"></p>
+        </div>
+
+        <div class="toolbar">
+          <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
+          <label class="sort">
+            <span>Ordenar</span>
+            <select id="sortSelect">
+              <option value="default">Destacados</option>
+              <option value="price-asc">Precio: menor a mayor</option>
+              <option value="price-desc">Precio: mayor a menor</option>
+              <option value="name">Nombre (A–Z)</option>
+            </select>
+          </label>
+        </div>
+
+        <p class="results" id="results" aria-live="polite"></p>
+        <div class="grid" id="grid"></div>
+      </section>
+
+      <section class="about">
+        <h2 id="aboutTitle"></h2>
+        <p id="aboutText"></p>
+      </section>
+    </section>
+
+    <!-- CHECKOUT -->
+    <section class="view" data-view="checkout" hidden>
+      <div class="wrap" id="checkoutRoot"></div>
+    </section>
+
+    <!-- TÉRMINOS -->
+    <section class="view" data-view="terminos" hidden>
+      <article class="wrap legal" id="termsRoot"></article>
+    </section>
+
+    <!-- PRIVACIDAD -->
+    <section class="view" data-view="privacidad" hidden>
+      <article class="wrap legal" id="privacyRoot"></article>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacto">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand" id="footBrand"></p>
+        <p class="footer-text" id="footText"></p>
+      </div>
+      <div>
+        <p class="footer-h">Contacto</p>
+        <ul class="footer-list" id="footContact"></ul>
+      </div>
+      <div>
+        <p class="footer-h">Información</p>
+        <ul class="footer-list">
+          <li><a href="#/terminos">Términos y condiciones</a></li>
+          <li><a href="#/privacidad">Política de privacidad</a></li>
+        </ul>
+        <ul class="footer-list social" id="footSocial"></ul>
+      </div>
+    </div>
+    <p class="copyright" id="copyright"></p>
+  </footer>
+
+  <!-- Detalle de producto -->
+  <dialog id="productDialog" class="modal" aria-labelledby="pdName"></dialog>
+
+  <!-- Carrito -->
+  <dialog id="cartDrawer" class="drawer" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <h2 id="cartTitle">Tu carrito</h2>
+      <button type="button" class="icon-btn" data-action="close-cart" aria-label="Cerrar carrito">✕</button>
+    </div>
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-foot" id="cartFoot"></div>
+  </dialog>
+
+  <div class="toast" id="toast" popover="manual" role="status" aria-live="polite"></div>
+
+  <noscript><p style="padding:2rem;text-align:center">Esta tienda necesita JavaScript para funcionar.</p></noscript>
+
+  <script src="js/config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/legal.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
