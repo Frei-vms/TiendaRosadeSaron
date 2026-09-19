@@ -10,7 +10,7 @@
      oldPrice     Precio anterior (opcional). Si lo pones, se muestra tachado.
      description  Descripción corta (se ve en la tarjeta)
      includes     Lista de lo que incluye (se ve en el detalle del producto)
-     image        Foto, ej: "img/products/mi-primera-rosa.jpg". Si falla, se usa una ilustración.
+     image        Foto, ej: "img/mi-primera-rosa.jpg". Si falla, se usa una ilustración.
      category     Debe coincidir con un "id" de CATEGORIES
      stock        Unidades disponibles (0 = agotado). Ajústalo según tu realidad.
      status       "available" o "unavailable"
