@@ -31,8 +31,8 @@ const STORE_CONFIG = {
   },
 
   /* ---- Contacto (déjalo vacío "" para ocultar un dato) ---- */
-  contact: 595984183711{
-    phone: "",                      
+  contact: {
+    phone: "0984183711",                      
     email: "",                      // Agregar cuando se disponga de un correo
     address: "",                    // Agregar la dirección del local si se desea mostrarla
     hours: "Atención de 07:00 a 19:00"
