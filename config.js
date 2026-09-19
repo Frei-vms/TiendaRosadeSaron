@@ -34,7 +34,7 @@ const STORE_CONFIG = {
   contact: {
     phone: "0984183711",                      
     email: "",                      // Agregar cuando se disponga de un correo
-    address: "",                    // Agregar la dirección del local si se desea mostrarla
+    address: "https://maps.app.goo.gl/LmuqkUCKnQn5c2FJ7",                   
     hours: "Atención de 07:00 a 19:00"
   },
 
