@@ -71,7 +71,8 @@
       { x: 54, y: 96, r: 25 }, { x: 100, y: 96, r: 25 }, { x: 146, y: 96, r: 25 },
       { x: 54, y: 138, r: 25 }, { x: 100, y: 138, r: 25 }, { x: 146, y: 138, r: 25 }
     ],
-    cluster: [{ x: 100, y: 88, r: 54 }, { x: 46, y: 130, r: 30 }, { x: 154, y: 130, r: 30 }]
+    cluster: [{ x: 100, y: 88, r: 54 }, { x: 46, y: 130, r: 30 }, { x: 154, y: 130, r: 30 }],
+    quad: [{ x: 100, y: 58, r: 36 }, { x: 56, y: 96, r: 34 }, { x: 144, y: 96, r: 34 }, { x: 100, y: 108, r: 34 }]
   };
   function artSVG(p) {
     const a = p.art || { type: 'rose', layout: 'single', palette: [['#C8102E', '#8E0B21']] };
@@ -93,8 +94,18 @@
     return '--bg1:' + bg[0] + ';--bg2:' + bg[1];
   }
   function artHTML(p) {
-    return p.image ? '<img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" loading="lazy">' : artSVG(p);
+    return p.image ? '<img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" loading="lazy" data-pid="' + esc(p.id) + '">' : artSVG(p);
   }
+  // Si una foto no carga (ruta mal escrita o archivo faltante), se usa la ilustración automática
+  document.addEventListener('error', (ev) => {
+    const im = ev.target;
+    if (!im || im.tagName !== 'IMG' || !im.dataset.pid) return;
+    const p = byId(im.dataset.pid);
+    if (!p) return;
+    const tmp = document.createElement('div');
+    tmp.innerHTML = artSVG(p);
+    im.replaceWith(tmp.firstChild);
+  }, true);
   function heroSVG() {
     return '<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">' +
       '<ellipse cx="80" cy="220" rx="20" ry="70" fill="#2E5B3B" transform="rotate(-50 80 220)"/>' +
@@ -173,7 +184,11 @@
 
   /* ---------- Encabezado / pie / textos ---------- */
   function tpl(s) {
-    return String(s)
+    s = String(s);
+    // Si un dato de contacto está vacío, se quita su mención en los textos legales
+    if (!C.contact.email) s = s.replace(/\s*·\s*Correo \{\{email\}\}/g, '');
+    if (!C.contact.phone) s = s.replace(/\s*·\s*Teléfono \{\{telefono\}\}/g, '');
+    return s
       .replace(/\{\{tienda\}\}/g, C.name)
       .replace(/\{\{whatsapp\}\}/g, '+' + C.sellerWhatsapp)
       .replace(/\{\{email\}\}/g, C.contact.email || '')

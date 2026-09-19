@@ -1,7 +1,7 @@
 /* ==========================================================================
    CONFIGURACIÓN CENTRAL DE LA TIENDA
    Este es el ÚNICO archivo donde cambias los datos del negocio.
-   Todo lo marcado con "EJEMPLO" debe reemplazarse antes de publicar.
+   Datos configurados para Florería Rosa de Sarón. Un dato vacío ("") no se muestra.
    ========================================================================== */
 
 const STORE_CONFIG = {
@@ -9,7 +9,7 @@ const STORE_CONFIG = {
   name: "Florería Rosa de Sarón",
   shortName: "Rosa de Sarón",
   tagline: "Flores con mensaje, entregadas con cariño",
-  logo: "",                       // Ruta a tu logo, ej: "img/logo.png". Vacío = usa el ícono de flor.
+  logo: "img/logo.png",           // Ruta a tu logo. Vacío = usa el ícono de flor.
 
   /* ---- Moneda ---- */
   currency: "PYG",
@@ -18,24 +18,24 @@ const STORE_CONFIG = {
   /* ---- WhatsApp del vendedor (SOLO aquí) ----
      Formato internacional, solo números, sin "+" ni espacios.
      Paraguay: 595 + número sin el 0 inicial. Ej: 0981 123 456 -> "595981123456" */
-  sellerWhatsapp: "595XXXXXXXXX", // EJEMPLO: reemplazar
+  sellerWhatsapp: "595984183711",
 
   /* ---- Pago por transferencia (ALIAS) ---- */
   payment: {
-    alias: "MI.TIENDA.PAGO",        // EJEMPLO: reemplazar
-    holder: "NOMBRE DEL TITULAR",   // EJEMPLO: reemplazar
-    bank: "BANCO DE EJEMPLO",       // EJEMPLO: reemplazar
+    alias: "4.192.227",
+    holder: "Juan Daniel Torres Flores",
+    bank: "Itaú",
     instructions:
-      "Transfiere el monto exacto al alias indicado y luego presiona CONFIRMAR PEDIDO. " +
-      "Te pediremos el comprobante por WhatsApp para verificar el pago."
+      "Transfiere el monto exacto al alias indicado desde la aplicación de tu banco y luego presiona CONFIRMAR PEDIDO. " +
+      "Envía el comprobante de la transferencia por WhatsApp para que podamos verificar tu pago y coordinar la entrega."
   },
 
   /* ---- Contacto (déjalo vacío "" para ocultar un dato) ---- */
   contact: {
-    phone: "+595 XXX XXX XXX",      // EJEMPLO
-    email: "contacto@ejemplo.com",  // EJEMPLO
-    address: "Dirección del local, Ciudad, Paraguay", // EJEMPLO
-    hours: "Lunes a sábado, 8:00 a 18:00"             // EJEMPLO
+    phone: "",                      // Se omite: ya se muestra el WhatsApp (mismo número)
+    email: "",                      // Agregar cuando se disponga de un correo
+    address: "",                    // Agregar la dirección del local si se desea mostrarla
+    hours: "Atención de 07:00 a 19:00"
   },
 
   /* ---- Redes sociales (URL completa; vacío = no se muestra) ---- */
