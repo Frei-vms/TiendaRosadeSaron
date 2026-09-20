@@ -10,11 +10,12 @@ Flujo de compra: catálogo → carrito → datos del comprador → instrucciones
 tienda-rosa-de-saron/
 ├── index.html          Estructura de la página (normalmente no se toca)
 ├── css/styles.css      Diseño y colores (variables al inicio, en :root)
-├── js/config.js        ★ Datos del negocio: nombre, WhatsApp, ALIAS, contacto, redes, textos
+├── js/config.js        ★ Datos del negocio: nombre, WhatsApp, ALIAS, contacto, Instagram, textos
 ├── js/products.js      ★ Catálogo de productos y categorías
 ├── js/legal.js         ★ Términos y condiciones y Política de privacidad (plantilla)
 ├── js/app.js           Lógica: catálogo, carrito, checkout, WhatsApp (no se toca)
-└── img/                Logo (logo.png) y fotos de productos (img/products/)
+├── 404.html            Página que se muestra si alguien entra a un enlace inexistente
+└── img/                Logo, íconos y fotos de productos (img/products/)
 ```
 
 Los archivos marcados con ★ son los únicos que necesitas editar.
@@ -79,9 +80,19 @@ Para quitar un producto, bórralo o pon `status: "unavailable"`. Para agregar ca
 
 **Agregar un producto con foto:** guarda la foto (cuadrada, unos 800 px) en `img/products/`, copia un bloque de `products.js` y cambia `id`, `name`, `price`, `includes` e `image`.
 
-## 6. Cambiar nombre, logo, contacto, redes y textos
+## 6. Cambiar nombre, logo, contacto, Instagram, ubicación y textos
 
-Todo en `js/config.js`. El logo se coloca en `img/` y se indica en `logo: "img/logo.png"`. Las redes sociales que dejes vacías no se muestran.
+Todo en `js/config.js`:
+
+- **WhatsApp:** `sellerWhatsapp`.
+- **Instagram:** `social.instagram` (URL completa, por ejemplo `https://instagram.com/rosadesaronnemby`). Se muestra en el pie de página y en los textos legales.
+- **Ubicación:** `contact.address` es el texto que se muestra y `contact.mapUrl` el enlace de Google Maps del local («Ver en el mapa»). `contact.whatsappCatalog` es el enlace a tu catálogo de WhatsApp Business.
+- **Horario, teléfono y correo:** `contact.hours`, `contact.phone`, `contact.email`. Un dato vacío (`""`) no se muestra.
+- **Fotos de la portada:** `heroImages` (3 fotos de `img/products/`).
+- **Pasos de «Cómo comprar»:** `howTo`.
+- **Logo:** colócalo en `img/` y indícalo en `logo`. El ícono de la pestaña es `img/favicon-32.png` y el de iPhone `img/apple-touch-icon.png`.
+
+Los datos que dejes vacíos no se muestran.
 
 ## 7. Términos y política de privacidad
 
@@ -116,3 +127,12 @@ Si quieres una dirección propia (por ejemplo `rosadesaron.com.py`), el dominio 
 - Como toda tienda 100 % estática, **los precios viven en el navegador**: un usuario con conocimientos técnicos podría alterarlos. Por eso el flujo se basa en que **tú verifiques el monto contra tu banco antes de preparar el pedido**. El número de pedido se genera en el dispositivo del comprador (6 dígitos derivados de la hora) y sirve como referencia, no como registro central.
 - El stock no se descuenta automáticamente; actualízalo a mano en `products.js`.
 - Si más adelante necesitas validación de precios y stock en servidor, la evolución natural y gratuita es agregar un backend (por ejemplo Cloudflare Workers + D1, o Supabase con plan gratuito) que reciba el pedido, recalcule el total con los precios reales y guarde el estado. La estructura de `order` en `app.js` y `ORDER_STATUSES` ya está pensada para eso.
+
+## 11. Vista previa al compartir el enlace (recomendado)
+
+Al publicar la tienda, abre `index.html` y busca el comentario «Vista previa al compartir el enlace». Agrega la línea con la dirección completa de tu logo para que WhatsApp y Facebook muestren la imagen al compartir el enlace:
+
+```html
+<meta property="og:image" content="https://TU-USUARIO.github.io/tienda/img/logo.png">
+```
+

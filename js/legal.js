@@ -13,13 +13,13 @@ const LEGAL_NOTICE =
 const LEGAL = {
   terms: {
     title: "Términos y condiciones",
-    updated: "Última actualización: 18 de septiembre de 2026",
+    updated: "Última actualización: 19 de septiembre de 2026",
     sections: [
       {
         h: "1. Información general",
         p: [
           "Este sitio es operado por {{tienda}} (en adelante, «la tienda»). Al realizar un pedido, el comprador declara haber leído y aceptado estos términos.",
-          "Contacto de la tienda: WhatsApp {{whatsapp}} · Correo {{email}}."
+          "Contacto de la tienda: WhatsApp {{whatsapp}} · Instagram {{instagram}} · Ubicación {{direccion}}."
         ]
       },
       {
@@ -95,7 +95,7 @@ const LEGAL = {
       {
         h: "12. Contacto",
         p: [
-          "Para consultas, reclamos o solicitudes: WhatsApp {{whatsapp}} · Teléfono {{telefono}} · Correo {{email}}."
+          "Para consultas, reclamos o solicitudes: WhatsApp {{whatsapp}} · Teléfono {{telefono}} · Instagram {{instagram}} · Ubicación {{direccion}}."
         ]
       }
     ]
@@ -103,7 +103,7 @@ const LEGAL = {
 
   privacy: {
     title: "Política de privacidad",
-    updated: "Última actualización: 18 de septiembre de 2026",
+    updated: "Última actualización: 19 de septiembre de 2026",
     sections: [
       {
         h: "1. Quiénes somos",
@@ -145,8 +145,9 @@ const LEGAL = {
       },
       {
         h: "7. Contacto",
-        p: ["WhatsApp {{whatsapp}} · Teléfono {{telefono}} · Correo {{email}}."]
+        p: ["WhatsApp {{whatsapp}} · Teléfono {{telefono}} · Instagram {{instagram}} · Ubicación {{direccion}}."]
       }
     ]
   }
 };
+
