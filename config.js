@@ -32,15 +32,17 @@ const STORE_CONFIG = {
 
   /* ---- Contacto (déjalo vacío "" para ocultar un dato) ---- */
   contact: {
-    phone: "0984183711",                      
-    email: "",                      // Agregar cuando se disponga de un correo
-    address: "https://maps.app.goo.gl/LmuqkUCKnQn5c2FJ7",                   
+    phone: "",                      // Se omite: ya se muestra el WhatsApp (mismo número)
+    email: "",                      // Sin correo: se usa Instagram (ver «social»)
+    address: "JF43+4MP, 111214 Ñemby, Paraguay", // Ubicación del local (código de Google Maps)
+    mapUrl: "https://maps.app.goo.gl/cshZgyDDWuoqDKNq6", // Enlace de Google Maps del local
+    whatsappCatalog: "https://wa.me/c/595984183711",     // Catálogo de WhatsApp Business (vacío = no se muestra)
     hours: "Atención de 07:00 a 19:00"
   },
 
   /* ---- Redes sociales (URL completa; vacío = no se muestra) ---- */
   social: {
-    instagram: "",   // ej: "https://instagram.com/tu_usuario"
+    instagram: "https://instagram.com/rosadesaronnemby",
     facebook: "",    // ej: "https://facebook.com/tu_pagina"
     tiktok: ""       // ej: "https://tiktok.com/@tu_usuario"
   },
@@ -52,21 +54,39 @@ const STORE_CONFIG = {
       "Ramos y arreglos armados a mano, con tarjeta dedicatoria y delivery. " +
       "Elige, paga por transferencia y confirmamos tu pedido por WhatsApp.",
     heroCta: "Ver catálogo",
-    catalogTitle: "Ramos y arreglos",
+    catalogTitle: "Nuestro catálogo",
     catalogText: "Cada pedido se prepara al momento. Consulta disponibilidad de entrega por WhatsApp.",
     aboutTitle: "Sobre nosotros",
     aboutText:
       "En Rosa de Sarón armamos cada ramo pensando en quién lo va a recibir. " +
       "Trabajamos con flores frescas y una presentación cuidada para que tu detalle llegue como lo imaginaste.",
     footerText: "Flores frescas, presentación cuidada y atención personalizada.",
-    checkoutNote: "El delivery y su costo se coordinan por WhatsApp una vez confirmado el pedido."
+    checkoutNote: "El delivery y su costo se coordinan por WhatsApp una vez confirmado el pedido.",
+    amountNote: "Este monto corresponde a los productos. El costo de delivery, si corresponde, se coordina por WhatsApp.",
+    howToTitle: "Cómo comprar",
+    howToText: "Comprar es simple: elige, transfiere y confirma por WhatsApp."
   },
+
+  /* ---- Fotos de la portada (3 imágenes; si se deja vacío se usa una ilustración) ---- */
+  heroImages: [
+    "img/products/sol-de-saron.jpg",
+    "img/products/ramo-arcoiris.jpg",
+    "img/products/bella-tentacion.jpg"
+  ],
+
+  /* ---- Pasos de compra (sección «Cómo comprar») ---- */
+  howTo: [
+    { t: "Elige tus flores",        d: "Explora el catálogo y agrega al carrito lo que más te guste." },
+    { t: "Completa tus datos",      d: "Indica quién recibe, la dirección de entrega y la ciudad." },
+    { t: "Transfiere con el alias", d: "Paga el monto exacto desde la aplicación de tu banco." },
+    { t: "Confirma por WhatsApp",   d: "Envía tu pedido y el comprobante; coordinamos la entrega contigo." }
+  ],
 
   /* ---- Puntos destacados bajo el encabezado ---- */
   perks: [
     { t: "Delivery disponible", d: "Coordinamos la entrega por WhatsApp" },
-    { t: "Tarjeta dedicatoria", d: "Incluida en los ramos" },
-    { t: "Pago por transferencia", d: "Sin tarjeta, sin comisiones" }
+    { t: "Dedicatoria personalizada", d: "Incluida en la mayoría de nuestros arreglos" },
+    { t: "Pago por transferencia", d: "Con el alias de tu banco, sin tarjeta" }
   ],
 
   /* ---- Pedidos ---- */
